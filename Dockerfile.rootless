@@ -1,5 +1,6 @@
 #Build stage
-FROM docker.io/library/golang:1.20-alpine3.17 AS build-env
+#Use docker.io/golang:1.20-alpine3.17.6 found here: https://hub.docker.com/layers/library/golang/1.20-alpine3.17/images/sha256-edb5f62844000fced982d73e939f13b82cbf989b82d6e8902032ba6238182dac?context=explore
+FROM docker.io/library/golang@sha256:4a411169cbb7af700b15708042b4d695f28af169e4ba22e65fc06b987ce2cbf9 AS build-env
 
 ARG GOPROXY
 ENV GOPROXY ${GOPROXY:-direct}
@@ -23,7 +24,7 @@ RUN if [ -n "${GITEA_VERSION}" ]; then git checkout "${GITEA_VERSION}"; fi \
 # Begin env-to-ini build
 RUN go build contrib/environment-to-ini/environment-to-ini.go
 
-FROM docker.io/library/alpine:3.17
+FROM docker.io/library/alpine:3.17.6
 LABEL maintainer="maintainers@gitea.io"
 
 EXPOSE 2222 3000
