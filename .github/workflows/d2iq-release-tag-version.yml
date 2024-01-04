@@ -18,7 +18,7 @@ jobs:
   docker-rootless:
     runs-on: 
       - self-hosted
-      - small
+      - large
     permissions:
         contents: read
         packages: write
