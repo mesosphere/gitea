@@ -12,7 +12,7 @@ on:
         description: 'Release Image Name'
         type: string
         required: true
-        default: 'docker.io/kaiwalyarjoshi/gitea:latest'
+        default: 'docker.io/mesosphere/gitea:latest'
 
 jobs:
   docker-rootless:
