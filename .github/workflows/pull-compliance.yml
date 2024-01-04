@@ -14,7 +14,9 @@ jobs:
   lint-backend:
     if: needs.files-changed.outputs.backend == 'true' || needs.files-changed.outputs.actions == 'true'
     needs: files-changed
-    runs-on: ubuntu-latest
+    runs-on: 
+      - self-hosted
+      - small
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
@@ -29,7 +31,9 @@ jobs:
   lint-templates:
     if: needs.files-changed.outputs.templates == 'true'
     needs: files-changed
-    runs-on: ubuntu-latest
+    runs-on: 
+      - self-hosted
+      - small
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v4
@@ -42,7 +46,9 @@ jobs:
   lint-yaml:
     if: needs.files-changed.outputs.yaml == 'true'
     needs: files-changed
-    runs-on: ubuntu-latest
+    runs-on: 
+      - self-hosted
+      - small
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v4
@@ -55,7 +61,9 @@ jobs:
   lint-swagger:
     if: needs.files-changed.outputs.swagger == 'true'
     needs: files-changed
-    runs-on: ubuntu-latest
+    runs-on: 
+      - self-hosted
+      - small    
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -67,7 +75,9 @@ jobs:
   lint-go-windows:
     if: needs.files-changed.outputs.backend == 'true' || needs.files-changed.outputs.actions == 'true'
     needs: files-changed
-    runs-on: ubuntu-latest
+    runs-on: 
+      - self-hosted
+      - small
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
@@ -84,7 +94,9 @@ jobs:
   lint-go-gogit:
     if: needs.files-changed.outputs.backend == 'true' || needs.files-changed.outputs.actions == 'true'
     needs: files-changed
-    runs-on: ubuntu-latest
+    runs-on: 
+      - self-hosted
+      - small
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
@@ -99,7 +111,9 @@ jobs:
   checks-backend:
     if: needs.files-changed.outputs.backend == 'true' || needs.files-changed.outputs.actions == 'true'
     needs: files-changed
-    runs-on: ubuntu-latest
+    runs-on: 
+      - self-hosted
+      - small
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
@@ -112,7 +126,9 @@ jobs:
   frontend:
     if: needs.files-changed.outputs.frontend == 'true' || needs.files-changed.outputs.actions == 'true'
     needs: files-changed
-    runs-on: ubuntu-latest
+    runs-on: 
+      - self-hosted
+      - small
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -127,7 +143,9 @@ jobs:
   backend:
     if: needs.files-changed.outputs.backend == 'true' || needs.files-changed.outputs.actions == 'true'
     needs: files-changed
-    runs-on: ubuntu-latest
+    runs-on: 
+      - self-hosted
+      - small
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
@@ -159,7 +177,9 @@ jobs:
   docs:
     if: needs.files-changed.outputs.docs == 'true' || needs.files-changed.outputs.actions == 'true'
     needs: files-changed
-    runs-on: ubuntu-latest
+    runs-on: 
+      - self-hosted
+      - small
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -172,7 +192,9 @@ jobs:
   actions:
     if: needs.files-changed.outputs.actions == 'true' || needs.files-changed.outputs.actions == 'true'
     needs: files-changed
-    runs-on: ubuntu-latest
+    runs-on: 
+      - self-hosted
+      - small
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5

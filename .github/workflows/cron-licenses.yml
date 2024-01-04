@@ -1,13 +1,16 @@
 name: cron-licenses
 
 on:
-  schedule:
-    - cron: "7 0 * * 1" # every Monday at 00:07 UTC
+  # Automated releases explicitly disabled for this fork.
+  # schedule:
+  #   - cron: "7 0 * * 1" # every Monday at 00:07 UTC
   workflow_dispatch:
 
 jobs:
   cron-licenses:
-    runs-on: ubuntu-latest
+    runs-on: 
+      - self-hosted
+      - small
     if: github.repository == 'go-gitea/gitea'
     steps:
       - uses: actions/checkout@v4

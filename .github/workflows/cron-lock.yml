@@ -1,8 +1,9 @@
 name: cron-lock
 
 on:
-  schedule:
-    - cron: "0 0 * * *" # every day at 00:00 UTC
+  # Automated releases explicitly disabled for this fork.
+  # schedule:
+  #   - cron: "0 0 * * *" # every day at 00:00 UTC
   workflow_dispatch:
 
 permissions:
@@ -14,7 +15,9 @@ concurrency:
 
 jobs:
   action:
-    runs-on: ubuntu-latest
+    runs-on: 
+      - self-hosted
+      - small
     if: github.repository == 'go-gitea/gitea'
     steps:
       - uses: dessant/lock-threads@v5
