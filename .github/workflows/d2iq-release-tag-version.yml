@@ -20,6 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: ${{ inputs.releaseTag }}
           fetch-tags: true
       - uses: docker/setup-qemu-action@v3
       - uses: docker/setup-buildx-action@v3
@@ -29,8 +30,8 @@ jobs:
           username: ${{ secrets.DOCKER_READ_WRITE_USERNAME }}
           password: ${{ secrets.DOCKER_READ_WRITE_PASSWORD }}
       - run: git tag -l
-      - name: Checkout release tag
-        run: git checkout ${{ inputs.releaseTag }}
+      # - name: Checkout release tag
+      #   run: git checkout ${{ inputs.releaseTag }}
       - name: build rootless docker image
         uses: docker/build-push-action@v5
         with:
