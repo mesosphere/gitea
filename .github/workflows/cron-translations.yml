@@ -8,7 +8,9 @@ on:
 
 jobs:
   crowdin-pull:
-    runs-on: ubuntu-latest
+    runs-on: 
+      - self-hosted
+      - small
     if: github.repository == 'go-gitea/gitea'
     steps:
       - uses: actions/checkout@v4
@@ -33,7 +35,9 @@ jobs:
           remote: "git@github.com:go-gitea/gitea.git"
           ssh_key: ${{ secrets.DEPLOY_KEY }}
   crowdin-push:
-    runs-on: ubuntu-latest
+    runs-on: 
+      - self-hosted
+      - small
     if: github.repository == 'go-gitea/gitea'
     steps:
       - uses: actions/checkout@v4
