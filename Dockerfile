@@ -24,7 +24,7 @@ RUN if [ -n "${GITEA_VERSION}" ]; then git checkout "${GITEA_VERSION}"; fi \
 # Begin env-to-ini build
 RUN go build contrib/environment-to-ini/environment-to-ini.go
 
-FROM docker.io/library/alpine:3.17.6
+FROM docker.io/library/alpine:3.17.7
 LABEL maintainer="maintainers@gitea.io"
 
 EXPOSE 22 3000
